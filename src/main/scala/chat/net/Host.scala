@@ -2,7 +2,7 @@ package chat.net
 
 import java.net.ServerSocket
 
-import akka.actor.{Actor, ActorRef, ActorSystem, Props}
+import akka.actor.{Actor, ActorRef, Props}
 import chat.Implicits.Function2Runnable
 
 import scala.collection.mutable
