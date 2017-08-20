@@ -2,35 +2,25 @@ package chat.controller
 
 import java.awt.event.ActionEvent
 
-import akka.actor.{Actor, Props}
-import chat.net.Client
-import chat.window.{WelcomePanel, Window}
+import akka.actor.{Actor, ActorRef, Props}
+import chat.window.WelcomePanel
 
 /**
   * Created by nikolaykombarov on 20.08.17.
   */
-class WelcomeController extends Controller with Actor {
-
+class WelcomeController(val window: ActorRef) extends Controller with Actor {
 
   override def receive: Receive = {
-    case "setup" => setup()
-    case "clear" => clear()
+    case BecomeActive() => super.becomeActive()
   }
 
   val onSubmit = { e: ActionEvent =>
-    Client.playerName = panel.nameField.getText
-    Client.serverAddress = panel.addressField.getText()
-    Window.setActiveController(Client.system.actorOf(Props[ChatController]))
+    val playerName = panel.nameField.getText
+    val serverAddress = panel.addressField.getText()
+
+    val chatController = system.actorOf(Props(new ChatController(playerName, serverAddress, window)))
+    chatController ! BecomeActive()
   }
 
   val panel: WelcomePanel = new WelcomePanel(onSubmit)
-
-  override def setup(): Unit = {
-    Window.add(panel)
-    Window.pack()
-  }
-
-  override def clear(): Unit = {
-    Window.remove(panel)
-  }
 }

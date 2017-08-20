@@ -37,6 +37,5 @@ class WelcomePanel(onSubmit: (ActionEvent) => Any) extends JPanel {
 
   add(centerPanel, BorderLayout.CENTER)
   add(button, BorderLayout.SOUTH)
-  Window.pack()
 
 }

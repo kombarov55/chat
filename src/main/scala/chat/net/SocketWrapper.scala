@@ -19,7 +19,6 @@ abstract class SocketWrapper(socket: Socket) extends Actor {
   override def receive: Receive = {
     case msg: CreatingMessage => receiveCreatingMessage(msg)
     case msg: BroadcastingMessage => receiveBroadcastMessage(msg)
-    case text => println(s"client received unknown message: $text")
   }
 
 
