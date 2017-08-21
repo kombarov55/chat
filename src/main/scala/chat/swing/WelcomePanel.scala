@@ -1,4 +1,4 @@
-package chat.window
+package chat.swing
 
 import java.awt.event.ActionEvent
 import java.awt.{BorderLayout, Dimension}
@@ -13,21 +13,19 @@ class WelcomePanel(onSubmit: (ActionEvent) => Any) extends JPanel {
 
   setLayout(new BorderLayout())
 
+  val nameLabel = new JLabel("Ваше имя: ")
+  val nameField = new JTextField()
 
-  val nameField = new JTextField("Ваше имя: ")
-  nameField.setPreferredSize(new Dimension(200, 10))
-
-  val addressField = new JTextField("Адрес сервера:")
-  addressField.setPreferredSize(new Dimension(200, 25))
-
+  val addressLabel = new JLabel("Адрес сервера: ")
+  val addressField = new JTextField()
 
   val centerPanel = new JPanel()
   val boxLayout = new BoxLayout(centerPanel, BoxLayout.Y_AXIS)
   centerPanel.setLayout(boxLayout)
 
-  centerPanel.add(nameField)
-  centerPanel.add(addressField)
-
+  for (component <- List(nameLabel, nameField, addressLabel, addressField)) {
+    centerPanel.add(component)
+  }
 
   val button = new JButton("OK")
   button.addActionListener(onSubmit)

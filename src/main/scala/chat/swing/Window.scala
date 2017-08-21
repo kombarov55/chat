@@ -1,4 +1,4 @@
-package chat.window
+package chat.swing
 
 import java.awt.Dimension
 import javax.swing.{JFrame, JPanel}

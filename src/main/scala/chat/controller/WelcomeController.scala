@@ -3,7 +3,7 @@ package chat.controller
 import java.awt.event.ActionEvent
 
 import akka.actor.{Actor, ActorRef, Props}
-import chat.window.WelcomePanel
+import chat.swing.WelcomePanel
 
 /**
   * Created by nikolaykombarov on 20.08.17.

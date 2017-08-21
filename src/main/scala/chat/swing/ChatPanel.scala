@@ -1,4 +1,4 @@
-package chat.window
+package chat.swing
 
 import java.awt.event.ActionEvent
 import java.awt.{BorderLayout, Dimension, FlowLayout}

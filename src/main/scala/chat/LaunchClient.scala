@@ -3,7 +3,7 @@ package chat
 import akka.actor.Props
 import chat.controller.{BecomeActive, WelcomeController}
 import chat.net.Client
-import chat.window.{Setup, Window}
+import chat.swing.{Setup, Window}
 
 /**
   * Created by nikolaykombarov on 19.08.17.

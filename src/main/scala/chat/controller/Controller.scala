@@ -3,7 +3,7 @@ package chat.controller
 import javax.swing.JPanel
 
 import akka.actor.{ActorRef, ActorSystem}
-import chat.window.ChangePanel
+import chat.swing.ChangePanel
 
 /**
   * Created by nikolaykombarov on 20.08.17.
